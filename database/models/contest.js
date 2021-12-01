@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
 	 */
 		static associate(models) {
 			// define association here
-			Contest.hasOne(models.Candidate, { foreignKey: 'contest_id'})
+			Contest.hasOne(models.Candidate, { foreignKey: 'contest_id'});
 		}
 	}
 	Contest.init({

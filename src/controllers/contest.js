@@ -26,7 +26,7 @@ class ContestController {
 			}
 			return responseHelper.sendSuccessResponse(res, { contests }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -40,7 +40,7 @@ class ContestController {
 			}
 			return responseHelper.sendSuccessResponse(res, { contests }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -52,7 +52,7 @@ class ContestController {
 			}
 			return responseHelper.sendSuccessResponse(res, { candidates }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -65,18 +65,18 @@ class ContestController {
 			if (!isOpenContest(req.params.id)) {
 				return errorHelper.handleError('CONTEST_HAS_ENDED', res);
 			}
-			const candidate = await Candidate.findOne({ where: { email: req.user.email }, attributes: { exclude: ['password'] } })
+			const candidate = await Candidate.findOne({ where: { email: req.user.email }, attributes: { exclude: ['password'] } });
 			if (!candidate) {
 				return errorHelper.handleError('NOT_AUTHORIZED', res);
 			}
 			if (candidate.contest_id && await isOpenContest(candidate.contest_id)) {
 				return errorHelper.handleError('USER_ALREADY_IN_AN_ONGOING_CONTEST', res);
 			}
-			await contest.increment('totalContestant')
-			await candidate.update({ contest_id: req.params.id })
+			await contest.increment('totalContestant');
+			await candidate.update({ contest_id: req.params.id });
 			return responseHelper.sendSuccessResponse(res, { candidate }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -106,13 +106,13 @@ class ContestController {
 			await contest.reload();
 			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
 	static async createContest(req, res) {
 		try {
-			const user = await User.findOne({ where: { email: req.user.email } })
+			const user = await User.findOne({ where: { email: req.user.email } });
 			if (!user) {
 				return errorHelper.handleError('NOT_AUTHORIZED', res);
 			}
@@ -123,7 +123,7 @@ class ContestController {
 			const contest = await Contest.create(newContest);
 			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -139,7 +139,7 @@ class ContestController {
 			await contest.destroy();
 			return responseHelper.sendSuccessResponse(res, {}, 'DATA_SUCCESSFULLY_DELETED');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 }

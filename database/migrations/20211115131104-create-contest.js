@@ -6,7 +6,7 @@ module.exports = {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
-				type: DataTypes.INTEGER
+				type: Sequelize.INTEGER
 			},
 			contestName: {
 				type: DataTypes.STRING,

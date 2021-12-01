@@ -32,7 +32,7 @@ class AuthService {
 			req.user = data;
 			return responseHelper.sendSuccessResponse(res, { token, user: data }, 'LOGIN_SUCCESSFUL');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
@@ -48,10 +48,10 @@ class AuthService {
 				password
 			};
 			await model.create(newUser);
-			const data = queryHelper.hidePassword(newUser)
+			const data = queryHelper.hidePassword(newUser);
 			return responseHelper.sendSuccessResponse(res, { data }, 'SIGNUP_SUCCESSFUL');
 		} catch (error) {
-			return errorHelper.handleError(error, res)
+			return errorHelper.handleError(error, res);
 		}
 	}
 
