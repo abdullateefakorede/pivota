@@ -35,7 +35,8 @@ module.exports = {
 			role: {
 				type: DataTypes.STRING,
 				defaultValue: 'coordinator'
-			}
+			},
+			user_thumb: DataTypes.STRING
 		});
 	},
 	// eslint-disable-next-line no-unused-vars

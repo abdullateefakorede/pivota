@@ -35,7 +35,8 @@ module.exports = {
 			},
 			voted: {
 				type: DataTypes.BOOLEAN
-			}
+			},
+			voter_thumb: DataTypes.STRING
 		});
 	},
 	// eslint-disable-next-line no-unused-vars

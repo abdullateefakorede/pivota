@@ -42,7 +42,8 @@ module.exports = (sequelize, DataTypes) => {
 		role: {
 			type: DataTypes.STRING,
 			defaultValue: 'coordinator'
-		}
+		},
+		user_thumb: DataTypes.STRING
 	}, {
 		sequelize,
 		modelName: 'User',

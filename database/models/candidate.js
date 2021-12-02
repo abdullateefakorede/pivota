@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 			// define association here
 		}
 	}
+	
 	Candidate.init({
 		firstName: {
 			type: DataTypes.STRING(45),
@@ -45,7 +46,8 @@ module.exports = (sequelize, DataTypes) => {
 		contest_id: {
 			type: DataTypes.INTEGER,
 			defaultValue: 0
-		}
+		},
+		candidate_thumb: DataTypes.STRING
 	}, {
 		sequelize,
 		modelName: 'Candidate',

@@ -36,7 +36,8 @@ module.exports = (sequelize, DataTypes) => {
 		user_id: {
 			type: DataTypes.INTEGER,
 			allowNull: false
-		}
+		},
+		contest_thumb: DataTypes.STRING
 	}, {
 		sequelize,
 		modelName: 'Contest',

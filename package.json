@@ -24,6 +24,7 @@
   "dependencies": {
     "@shypes/language-translator": "^2.0.15",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-watch": "^8.0.0",

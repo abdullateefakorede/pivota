@@ -27,7 +27,8 @@ module.exports = {
 			},
 			user_id: {
 				type: DataTypes.INTEGER
-			}
+			},
+			contest_thumb: DataTypes.STRING
 		});
 	},
 	// eslint-disable-next-line no-unused-vars

@@ -41,7 +41,8 @@ module.exports = {
 			vote: {
 				type: DataTypes.INTEGER,
 				defaultValue: 0
-			}
+			},
+			candidate_thumb: DataTypes.STRING
 		});
 	},
 	// eslint-disable-next-line no-unused-vars

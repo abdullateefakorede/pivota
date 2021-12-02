@@ -43,7 +43,8 @@ module.exports = (sequelize, DataTypes) => {
 		voted: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false
-		}
+		},
+		voter_thumb: DataTypes.STRING
 	}, {
 		sequelize,
 		modelName: 'Voter',
