@@ -1,4 +1,3 @@
-// const db = require("./database/models")
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -32,7 +31,6 @@ app.use(function (req, res, next) {
 app.options('*', cors());
 
 app.listen(config.port, function() {
-	// db.sequelize.sync()
 	console.log(`Driver service is running on ${config.port}`);
 });
 
