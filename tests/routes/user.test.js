@@ -1,7 +1,7 @@
 const express = require('express');
 
 describe('User Route Test', () => {
-	test('', () => {
+	test('User Route Test', () => {
 		const mockRouter = {
 			get: jest.fn(),
 			post: jest.fn(),

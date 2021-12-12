@@ -7,7 +7,7 @@ class CandidateController {
 	}
 
 	static async candidateSignUp(req, res) {
-		await AuthService.SignUp(Candidate, req, res);
+		await AuthService.signUp(Candidate, req, res);
 	}
 }
 

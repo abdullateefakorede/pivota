@@ -12,7 +12,7 @@ class ContestController {
 			if (!contest) {
 				return errorHelper.handleError('NO_CONTEST_FOUND', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contest }, 'CONTEST_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -24,7 +24,7 @@ class ContestController {
 			if (!contests.length) {
 				return errorHelper.handleError('NO_CONTEST_AVAILABLE', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { contests }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contests }, 'CONTESTS_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}

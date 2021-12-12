@@ -7,7 +7,7 @@ class UserController {
 	}
 
 	static async userSignUp(req, res) {
-		AuthService.SignUp(User, req, res);
+		AuthService.signUp(User, req, res);
 	}
 }
 
