@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 describe('Register Route Test', () => {
-	test('', () => {
+	test('Register Route Test', () => {
 		const mockApp = {
 			use: jest.fn()
 		};

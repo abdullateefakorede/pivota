@@ -36,13 +36,13 @@ class AuthService {
 		}
 	}
 
-	static async SignUp(model, req, res) {
+	static async signUp(model, req, res) {
 		try {
-			const password = await AuthService.hashPassword(req.body.password, 10);
 			const user = await model.findOne({ where: { email: req.body.email } });
 			if (user) {
 				return errorHelper.handleError('USER_ALREADY_EXIST_PLEASE_SIGNIN', res);
 			}
+			const password = await AuthService.hashPassword(req.body.password, 10);
 			const newUser = {
 				...req.body,
 				password

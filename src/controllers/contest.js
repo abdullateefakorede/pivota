@@ -12,7 +12,7 @@ class ContestController {
 			if (!contest) {
 				return errorHelper.handleError('NO_CONTEST_FOUND', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contest }, 'CONTEST_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -24,7 +24,7 @@ class ContestController {
 			if (!contests.length) {
 				return errorHelper.handleError('NO_CONTEST_AVAILABLE', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { contests }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contests }, 'CONTESTS_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -38,7 +38,7 @@ class ContestController {
 			if (!contests) {
 				return errorHelper.handleError('NO_CONTEST_AVAILABLE', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { contests }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contests }, 'CONTESTS_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -48,9 +48,9 @@ class ContestController {
 		try {
 			const candidates = await Candidate.findAll({ where: { contest_id: req.params.id }, attributes: { exclude: ['password'] } });
 			if (!candidates.length) {
-				return errorHelper.handleError('NO_CONTESTANT_FOUND_FOR_THIS_CONTEST', res);
+				return errorHelper.handleError('NO_CANDIDATE_FOUND_FOR_THIS_CONTEST', res);
 			}
-			return responseHelper.sendSuccessResponse(res, { candidates }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { candidates }, 'CANDIDATES_FOUND');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -74,7 +74,7 @@ class ContestController {
 			}
 			await contest.increment('totalContestant');
 			await candidate.update({ contest_id: req.params.id });
-			return responseHelper.sendSuccessResponse(res, { candidate }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { candidate }, 'CONTEST_JOINED');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -104,7 +104,7 @@ class ContestController {
 			await voter.update({ voted: true });
 			await contest.increment('totalVote');
 			await contest.reload();
-			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contest }, 'VOTED_SUCCESSFULLY');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -121,7 +121,7 @@ class ContestController {
 				user_id: req.user.id
 			};
 			const contest = await Contest.create(newContest);
-			return responseHelper.sendSuccessResponse(res, { contest }, 'SUCCESS');
+			return responseHelper.sendSuccessResponse(res, { contest }, 'CONTEST_CREATED');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}
@@ -137,7 +137,7 @@ class ContestController {
 				return errorHelper.handleError('NOT_AUTHORIZED', res);
 			}
 			await contest.destroy();
-			return responseHelper.sendSuccessResponse(res, {}, 'DATA_SUCCESSFULLY_DELETED');
+			return responseHelper.sendSuccessResponse(res, {}, 'CONTEST_DELETED');
 		} catch (error) {
 			return errorHelper.handleError(error, res);
 		}

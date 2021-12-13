@@ -1,17 +1,14 @@
 exports.getContestsFilter = (requestQuery) => {
-	const { partner_id, country, source, page, size } = requestQuery;
+	const { category_id, user_id, page, size } = requestQuery;
 	const filter = {};
 	const limit = size ? +size : 10;
 	const offset = page ? page * limit : 0;
 
-	if (partner_id) { 
-		filter.partner_id = partner_id;
+	if (category_id) { 
+		filter.category_id = category_id;
 	}
-	if (country) {
-		filter.country = country;
-	}
-	if (source) {
-		filter.source = source;
+	if (user_id) {
+		filter.user_id = user_id;
 	}
 
 	return { filter, limit, offset };
