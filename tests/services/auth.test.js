@@ -24,7 +24,7 @@ describe('AuthService', () => {
           '$2a$10$/mJG/U/gl4zaUDAYOnyP7.8VbVQoU1liUV.8XeTmFRCWlk/DEl8nG',
 			});
 			const token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlVzZXJUZXN0QGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzkzMTAxNzgsImV4cCI6MTYzOTM0NjE3OH0.TjrZtW1MmXFasg7o8yC0xHIU4Q5F-GMfzpbXnIYLS1s';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlVzZXJUZXN0QGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE2MzkzOTY4NDEsImV4cCI6MTYzOTQzMjg0MX0.rcJvJX1_Ld4VXajS30kaUUogS_78sTkhLgcnMWdPin8';
 			const data = { email: 'UserTest@gmail.com', id: 1 };
 			const message = 'LOGIN_SUCCESSFUL';
 			const mockFindOne = jest
